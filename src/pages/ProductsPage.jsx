@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { products } from "../components/Products/utils/products"; // Asegúrate de importar los productos
 import Navbar from "../components/Navbar/Navbar";
+import CardProduct from "../components/Products/CardProduct";
 
 export default function ViewProducts() {
     const location = useLocation();
@@ -26,16 +27,7 @@ export default function ViewProducts() {
                 {filteredProducts.length > 0 ? (
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                         {filteredProducts.map((product) => (
-                            <div key={product.id} className="bg-white p-4 rounded-lg shadow-md">
-                                <img
-                                    src={product.image}
-                                    alt={product.name}
-                                    className="w-full h-40 object-cover rounded-md"
-                                />
-                                <h3 className="mt-2 text-lg font-semibold">{product.name}</h3>
-                                <p className="text-gray-600 text-sm">{product.description}</p>
-                                <p className="text-blue-600 font-bold mt-2">${product.price.toFixed(2)}</p>
-                            </div>
+                            <CardProduct key={product.id} product={product} />
                         ))}
                     </div>
                 ) : (
