@@ -1,8 +1,10 @@
 import React from 'react';
 import { ShoppingCart } from "lucide-react";
 import { Link } from '@heroui/react';
+import { useLocation } from "react-router-dom";
 
 export default function Navbar() {
+    const location = useLocation();
     return (
         <header className="sticky top-0 z-50 bg-white border-b-2 border-gray-200">
             <div className="mx-auto px-4 py-3 flex items-center justify-between">
@@ -17,15 +19,35 @@ export default function Navbar() {
 
 
                 <nav className="hidden md:flex items-center space-x-6 text-sm font-bold pr-6">
-                    <Link href="/inicio" className="text-blue-600 hover:text-blue-700">Inicio</Link>
-                    <Link href="/productos" className="text-gray-700 hover:text-blue-600">Productos</Link>
-                    <Link href="/categorias" className="text-gray-700 hover:text-blue-600">Categorías</Link>
-                    <Link href="/ofertas" className="text-gray-700 hover:text-blue-600">Ofertas</Link>
-                    <Link href="/contacto" className="text-gray-700 hover:text-blue-600">Contacto</Link>
+                    <Link
+                        href="/"
+                        className={location.pathname === "/" ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}>
+                        Inicio
+                    </Link>
+                    <Link
+                        href="/categorias"
+                        className={location.pathname.startsWith("/categorias") ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}>
+                        Categorías
+                    </Link>
+                    <Link
+                        href="/productos"
+                        className={location.pathname.startsWith("/productos") ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}>
+                        Productos
+                    </Link>
+                    <Link
+                        href="/ofertas"
+                        className={location.pathname === "/ofertas" ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}>
+                        Ofertas
+                    </Link>
+                    <Link
+                        href="/contacto"
+                        className={location.pathname === "/contacto" ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}>
+                        Contacto
+                    </Link>
                 </nav>
 
                 <div className="flex items-center justify-end gap-8 pr-5">
-                    <Link to="/cuenta" className="relative hidden md:flex items-center justify-center gap-2">
+                    <Link href="/cuenta" className="relative hidden md:flex items-center justify-center gap-2">
                         <i className="ri-user-3-line text-base"></i>
                         <span className="text-sm text-gray-800 hover:text-blue-600 font-bold">Cuenta</span>
                     </Link>
