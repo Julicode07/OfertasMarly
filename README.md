@@ -6,6 +6,9 @@ Ofertas Marly es tu tienda en línea de confianza, donde cada producto está sel
 
 ## 🎯 **Características**
 ✅ Gran variedad de productos a precios bajos.
+<br>
 ✅ Interfaz intuitiva y fácil de usar.
+<br>
 ✅ Ofertas actualizadas constantemente.
+<br>
 ✅ Compra segura y confiable.
