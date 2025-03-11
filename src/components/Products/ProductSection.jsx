@@ -3,7 +3,7 @@ import CardProduct from "./CardProduct";
 import { products } from "./utils/products";
 export default function ProductSection() {
     return (
-        <section id="productos" className="py-16 bg-gray-100">
+        <section id="productos" className="py-10 bg-gray-100">
             <div className="container mx-auto px-4 text-center">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
                     <h3 className="text-3xl md:text-4xl font-bold text-gray-900">Productos Destacados</h3>

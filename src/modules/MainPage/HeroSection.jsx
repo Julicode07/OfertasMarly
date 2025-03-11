@@ -45,7 +45,7 @@ export default function HeroSection() {
 
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <a href="#productos" className="bg-white text-blue-700 hover:bg-gray-100 font-semibold px-6 py-3 rounded-lg block sm:flex items-center cursor-pointer group">
-                                    Explorar productos
+                                    Productos destacados
                                     <i className="ri-arrow-right-line text-xl ml-2 transition-transform duration-300 ease-in-out group-hover:rotate-90"></i>
                                 </a>
                                 <button className="border border-white text-white hover:bg-white/10 font-semibold px-6 py-3 rounded-lg block sm:flex items-center cursor-pointer">

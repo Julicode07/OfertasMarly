@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { products } from "../components/Products/utils/products"; // Asegúrate de importar los productos
+import { products } from "../components/Products/utils/products";
 import Navbar from "../components/Navbar/Navbar";
 import CardProduct from "../components/Products/CardProduct";
 
@@ -17,7 +17,7 @@ export default function ViewProducts() {
         : products.filter(product => product.category.toLowerCase() === category.toLowerCase());
 
     return (
-        <main>
+        <main className="pb-18 md:pb-0">
             <Navbar />
             <div className="p-5">
                 <h1 className="text-2xl font-bold text-gray-900 mb-4">

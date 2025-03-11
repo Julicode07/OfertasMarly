@@ -6,13 +6,12 @@ import Categories from '../components/Categories/Categories';
 
 export default function MainPage() {
     return (
-        <div className="min-h-screen bg-gray-50 text-gray-900">
+        <div className="min-h-screen bg-gray-50 text-gray-900 pb-6 md:pb-0">
             <Navbar />
             <HeroSection />
             <Categories />
             <ProductSection />
-            {/* Footer */}
-            <footer className="py-6 bg-gray-900 text-white text-center">
+            <footer className="py-6 bg-gray-900 text-white text-center hidden md:block">
                 <p className="text-lg">© {new Date().getFullYear()} Ofertas Marly - Todos los derechos reservados.</p>
             </footer>
         </div>
