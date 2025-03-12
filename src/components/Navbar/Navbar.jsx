@@ -67,7 +67,7 @@ export default function Navbar() {
                 </div>
             </header>
 
-            <nav className="fixed bottom-0 left-0 w-full bg-white shadow-md border-t border-gray-300 md:hidden flex justify-between px-4 py-2 z-50">
+            <nav className="fixed bottom-0 left-0 w-full bg-white shadow-md border-t border-gray-300 md:hidden flex justify-between px-4 py-2 z-50 h-18">
                 <a href="/" className={`flex flex-col items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-200 ${location.pathname === "/" ? "bg-blue-50 text-blue-600" : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"}`}>
                     <Home className="h-6 w-6" />
                     <span className="text-xs font-medium">Inicio</span>
