@@ -35,13 +35,14 @@ export default function ProductView() {
     return (
         <main className="bg-gray-100 min-h-screen">
             <Navbar />
-            <div className="max-w-5xl mx-auto p-4 md:p-8 bg-white rounded-lg shadow-lg mt-4 md:mt-6">
+            <div className="max-w-5xl mx-auto px-4 pt-4 pb-8 md:p-8 bg-white rounded-lg shadow-lg md:mt-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="relative flex justify-center">
                         <img
                             src={image || "/placeholder.svg"}
                             alt={name}
-                            className="w-full max-h-[400px] md:max-h-[500px] rounded-lg object-contain"
+                            className="w-full max-h-[300px] md:max-h-[500px] rounded-lg object-contain"
+                            loading="lazy"
                         />
                         {isNew && (
                             <span className="absolute top-2 left-2 bg-blue-500 text-white font-semibold px-3 py-1 text-sm rounded-full shadow-md">

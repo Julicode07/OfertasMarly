@@ -27,7 +27,7 @@ export default function Navbar() {
                 <div className="mx-auto px-4 py-3 flex items-center justify-between">
                     <div className="flex items-center gap-4 pl-1">
                         <Link href="/" className="flex items-center">
-                            <img src="/BagIcon2.webp" alt="Logo" className="h-8 w-8 mr-2 mb-1" />
+                            <img src="/BagIcon2.webp" alt="Logo" className="h-8 w-8 mr-2 mb-1" loading="lazy" />
                             <h1 className="text-2xl font-extrabold bg-gradient-to-r from-blue-700 via-blue-500 to-blue-700 text-transparent bg-clip-text drop-shadow-lg transition-transform duration-200 hover:scale-105">
                                 Ofertas Marly
                             </h1>
@@ -68,22 +68,22 @@ export default function Navbar() {
             </header>
 
             <nav className="fixed bottom-0 left-0 w-full bg-white shadow-md border-t border-gray-300 md:hidden flex justify-between px-4 py-2 z-50">
-                <a href="/" className={`flex flex-col items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-200 ${location.pathname === "/" ? "bg-blue-100 text-blue-600" : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"}`}>
+                <a href="/" className={`flex flex-col items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-200 ${location.pathname === "/" ? "bg-blue-50 text-blue-600" : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"}`}>
                     <Home className="h-6 w-6" />
                     <span className="text-xs font-medium">Inicio</span>
                 </a>
 
-                <a href="/categorias" className={`flex flex-col items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-200 ${location.pathname === "/categorias" ? "bg-blue-100 text-blue-600" : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"}`}>
+                <a href="/categorias" className={`flex flex-col items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-200 ${location.pathname === "/categorias" ? "bg-blue-50 text-blue-600" : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"}`}>
                     <List className="h-6 w-6" />
                     <span className="text-xs font-medium">Categorías</span>
                 </a>
 
-                <a href="/productos" className={`flex flex-col items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-200 ${location.pathname === "/productos" ? "bg-blue-100 text-blue-600" : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"}`}>
+                <a href="/productos" className={`flex flex-col items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-200 ${location.pathname === "/productos" || location.pathname === "/producto/" ? "bg-blue-50 text-blue-600" : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"}`}>
                     <Tag className="h-6 w-6" />
                     <span className="text-xs font-medium">Productos</span>
                 </a>
 
-                <a href="/contacto" className={`flex flex-col items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-200 ${location.pathname === "/contacto" ? "bg-blue-100 text-blue-600" : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"}`}>
+                <a href="/contacto" className={`flex flex-col items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-200 ${location.pathname === "/contacto" ? "bg-blue-50 text-blue-600" : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"}`}>
                     <Phone className="h-6 w-6" />
                     <span className="text-xs font-medium">Contacto</span>
                 </a>

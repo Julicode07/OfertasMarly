@@ -6,7 +6,7 @@ import Categories from '../components/Categories/Categories';
 
 export default function MainPage() {
     return (
-        <div className="min-h-screen bg-gray-50 text-gray-900 pb-6 md:pb-0">
+        <div className="min-h-screen bg-gray-50 text-gray-900 pb-14 md:pb-0">
             <Navbar />
             <HeroSection />
             <Categories />

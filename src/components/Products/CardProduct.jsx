@@ -29,7 +29,7 @@ export default function CardProduct({ product }) {
                 </button>
 
                 {isNew && (
-                    <span className="absolute top-2 left-2 bg-blue-500 text-white font-semibold px-2 py-1 text-xs rounded-full shadow-md">
+                    <span className="absolute top-2 left-2 bg-blue-600 text-white font-semibold px-2 py-1 text-xs rounded-full shadow-md">
                         Nuevo
                     </span>
                 )}

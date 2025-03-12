@@ -61,11 +61,13 @@ export default function HeroSection() {
                                     src="/Launch.png"
                                     alt="Nuestros productos"
                                     className="absolute top-5 left-0 z-0 w-auto h-[300px] object-cover"
+                                    loading="lazy"
                                 />
                                 <img
                                     src="/Product.png"
                                     alt="Nuestros productos"
                                     className="absolute top-20 left-64 z-10 hidden lg:block w-auto h-[300px] object-cover"
+                                    loading="lazy"
                                 />
                             </div>
 

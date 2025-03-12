@@ -4,7 +4,7 @@ import { products } from "../components/Products/utils/products";
 import Navbar from "../components/Navbar/Navbar";
 import CardProduct from "../components/Products/CardProduct";
 
-export default function ViewProducts() {
+export default function ProductsPage() {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
 
@@ -20,12 +20,12 @@ export default function ViewProducts() {
         <main className="pb-18 md:pb-0">
             <Navbar />
             <div className="p-5">
-                <h1 className="text-2xl font-bold text-gray-900 mb-4">
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                     {category === "todos" ? "Todos los Productos" : `Productos en ${category}`}
                 </h1>
 
                 {filteredProducts.length > 0 ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 md:gap-8 lg:grid-cols-5 lg:gap-12">
                         {filteredProducts.map((product) => (
                             <CardProduct key={product.id} product={product} />
                         ))}
