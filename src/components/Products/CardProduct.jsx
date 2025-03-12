@@ -19,15 +19,6 @@ export default function CardProduct({ product }) {
                     />
                 </div>
 
-                <button
-                    className="absolute top-2 right-2 bg-white/80 backdrop-blur-sm hover:bg-white/90 rounded-full p-1 shadow transition cursor-pointer"
-                    onClick={() => setIsFavorite(!isFavorite)}
-                    aria-label="Marcar como favorito"
-                    title="Marcar como favorito"
-                >
-                    <Heart className={`h-5 w-5 transition-colors ${isFavorite ? "fill-blue-500 text-blue-500" : "text-gray-600"}`} />
-                </button>
-
                 {isNew && (
                     <span className="absolute top-2 left-2 bg-blue-600 text-white font-semibold px-2 py-1 text-xs rounded-full shadow-md">
                         Nuevo

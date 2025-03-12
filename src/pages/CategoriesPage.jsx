@@ -21,9 +21,9 @@ export default function CategoriesPage() {
         <div>
             <Navbar />
 
-            <section id="categorias" className="py-8 bg-gray-50">
+            <section id="categorias" className="py-4 bg-gray-50">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">Todas las Categorías</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">Todas las Categorías</h2>
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
                         {categoryList.map(({ name, image, count }) => (
                             <a key={name} href={`/productos?categoria=${name}`} className="group relative overflow-hidden rounded-lg bg-white shadow-sm hover:shadow-md transition-all">
