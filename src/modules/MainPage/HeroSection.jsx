@@ -1,6 +1,12 @@
 
 import React from "react";
 export default function HeroSection() {
+
+    const phoneNumber = "573028543435";
+
+    const message = `👋 Hola Marly ...`;
+
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
     return (
         <main>
             <section className="relative overflow-hidden">
@@ -24,7 +30,7 @@ export default function HeroSection() {
                             </h2>
 
                             <p className="text-white/90 text-lg">
-                                Descubre nuestras increíbles ofertas en artículos para el hogar y cuidado personal. Productos de calidad, precios irresistibles y todo lo que necesitas para hacer tu día a día más cómodo.
+                                Descubre increíbles ofertas en artículos para el hogar y cuidado personal. Productos de calidad, precios irresistibles y todo lo que necesitas para hacer tu día a día más cómodo.
 
                             </p>
 
@@ -48,10 +54,10 @@ export default function HeroSection() {
                                     Productos destacados
                                     <i className="ri-arrow-right-line text-xl ml-2 transition-transform duration-300 ease-in-out group-hover:rotate-90"></i>
                                 </a>
-                                <button className="border border-white text-white hover:bg-white/10 font-semibold px-6 py-3 rounded-lg block sm:flex items-center cursor-pointer">
+                                <a href={whatsappUrl} className="border border-white text-white hover:bg-white/10 font-semibold px-6 py-3 rounded-lg block sm:flex items-center cursor-pointer">
                                     Contactanos
                                     <i className="ri-phone-fill text-xl ml-2"></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
 

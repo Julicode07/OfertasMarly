@@ -1,11 +1,8 @@
-import React, { useState } from "react";
-import { Heart } from "lucide-react";
-
+import React from "react";
 export default function CardProduct({ product }) {
     if (!product) return null;
 
     const { id, image, name, description, price, category, isNew } = product;
-    const [isFavorite, setIsFavorite] = useState(false);
 
     return (
         <a href={`/producto/${id}`} className="group bg-white rounded-lg border border-gray-200 overflow-hidden transition-all hover:shadow-md">

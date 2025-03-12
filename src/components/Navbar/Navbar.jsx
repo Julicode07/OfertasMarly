@@ -52,7 +52,7 @@ export default function Navbar() {
                         </Link>
                     </nav>
 
-                    <div className="flex items-center justify-end gap-8 pr-3">
+                    <div className="flex items-center justify-end gap-8 pr-3 hidden">
                         <Link href="/cuenta" className="relative hidden md:flex items-center justify-center gap-2">
                             <i className="ri-user-3-line text-base"></i>
                             <span className="text-sm text-gray-800 hover:text-blue-600 font-bold">Cuenta</span>
@@ -83,10 +83,10 @@ export default function Navbar() {
                     <span className="text-xs font-medium">Productos</span>
                 </a>
 
-                <a href="/contacto" className={`flex flex-col items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-200 ${location.pathname === "/contacto" ? "bg-blue-50 text-blue-600" : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"}`}>
+                {/*                 <a href="/contacto" className={`flex flex-col items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-200 ${location.pathname === "/contacto" ? "bg-blue-50 text-blue-600" : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"}`}>
                     <Phone className="h-6 w-6" />
                     <span className="text-xs font-medium">Contacto</span>
-                </a>
+                </a> */}
 
                 <div className="relative" ref={dropdownRef}>
                     <button
@@ -105,14 +105,15 @@ export default function Navbar() {
                             transition={{ duration: 0.2 }}
                             className="absolute bottom-14 right-0 w-52 bg-white shadow-lg rounded-lg border border-gray-200"
                         >
-                            <p className="px-4 py-2 text-sm text-gray-800 font-semibold border-b">Signed in as</p>
+                            {/* <p className="px-4 py-2 text-sm text-gray-800 font-semibold border-b">Signed in as</p>
                             <p className="px-4 py-2 text-sm text-gray-600 border-b">zoey@example.com</p>
                             <a href="/settings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Configuración</a>
                             <a href="/pedidos" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mis Pedidos</a>
                             <a href="/favoritos" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Favoritos</a>
                             <button className="bg-red-100 rounded-b-lg block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
                                 Cerrar Sesión
-                            </button>
+                            </button> */}
+                            <p className="p-4">Proximamente</p>
                         </motion.div>
                     )}
                 </div>

@@ -24,7 +24,7 @@ export default function ProductView() {
     const message = `👋 Hola Marly, estoy interesado en este producto:
 📌 *Nombre:* ${name}
 📖 *Descripción:* ${description}
-💰 *Precio:* $${price.toFixed(2)}
+💰 *Precio:* $${price.toFixed(3)}
 🏷️ *Categoría:* ${category || "General"}
 🔗 *Enlace del producto:* ${productUrl}
 
@@ -33,9 +33,9 @@ export default function ProductView() {
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
     return (
-        <main className="bg-gray-100 min-h-screen">
+        <main className="bg-white h-screen w-screen">
             <Navbar />
-            <div className="max-w-5xl mx-auto px-4 pt-4 pb-8 md:p-8 bg-white rounded-lg shadow-lg md:mt-6">
+            <div className="max-w-full h-[90vh] mx-auto px-4 pt-4 md:p-8 rounded-lg md:flex md:items-center">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="relative flex justify-center">
                         <img
@@ -61,7 +61,7 @@ export default function ProductView() {
                         </div>
 
                         <div className="mt-6 flex flex-col md:flex-row items-start sm:items-center md:justify-between gap-4">
-                            <span className="text-3xl font-bold text-gray-900">${price.toFixed(2)}</span>
+                            <span className="text-3xl font-bold text-gray-900">${price.toFixed(3) + " COP"}</span>
                             <a
                                 href={whatsappUrl}
                                 target="_blank"

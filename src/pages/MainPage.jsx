@@ -11,8 +11,11 @@ export default function MainPage() {
             <HeroSection />
             <Categories />
             <ProductSection />
-            <footer className="py-6 bg-gray-900 text-white text-center hidden md:block">
-                <p className="text-lg">© {new Date().getFullYear()} Ofertas Marly - Todos los derechos reservados.</p>
+            <footer class="bg-white hidden md:block">
+                <div class="border-t border-gray-200 py-6 text-center text-gray-500 text-sm font-bold">
+                    <p>© {new Date().getFullYear()} Ofertas Marly - Todos los derechos reservados.</p>
+                </div>
+
             </footer>
         </div>
     );

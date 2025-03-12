@@ -11,10 +11,10 @@ export default function Categories() {
     }, {});
 
     const categoryData = [
-        { name: "Cocina", image: "cocina.png" },
-        { name: "Oficina", image: "oficina.png" },
-        { name: "Iluminación", image: "iluminación.png" },
-        { name: "Belleza", image: "belleza.png" }
+        { name: "Cocina", image: "cocina.webp" },
+        { name: "Oficina", image: "oficina.webp" },
+        { name: "Iluminación", image: "iluminacion.webp" },
+        { name: "Belleza", image: "belleza.webp" }
     ];
 
     return (

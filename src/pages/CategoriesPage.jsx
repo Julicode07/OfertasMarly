@@ -14,7 +14,7 @@ export default function CategoriesPage() {
     const categoryList = Object.keys(categories).map(category => ({
         name: category,
         count: categories[category],
-        image: `/images/Categories/${category.toLowerCase()}.png`
+        image: `/images/Categories/${category.toLowerCase()}.webp`
     }));
 
     return (
