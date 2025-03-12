@@ -34,7 +34,7 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    <nav className="hidden md:flex items-center space-x-6 text-sm font-bold pr-6">
+                    <nav className="hidden md:flex items-center space-x-6 text-base font-bold pr-6">
                         <Link href="/" className={location.pathname === "/" ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}>
                             Inicio
                         </Link>

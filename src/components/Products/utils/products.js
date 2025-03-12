@@ -23,7 +23,7 @@ export const products = [
         name: "Cafetera de Goteo con Filtro Reutilizable",
         description: "Prepara café delicioso en minutos con esta cafetera fácil de usar y limpiar. Su filtro reutilizable ayuda a reducir el uso de desechables.",
         price: 59.99,
-        isNew: true,
+        isNew: false,
         category: "Cocina"
     },
     {
@@ -59,7 +59,7 @@ export const products = [
         name: "Lámpara LED Recargable con Sensor",
         description: "Ilumina tu espacio con esta lámpara LED portátil de bajo consumo energético. Con sensor de movimiento, ideal para pasillos, closets o dormitorios.",
         price: 35.99,
-        isNew: true,
+        isNew: false,
         category: "Iluminación"
     },
     {
@@ -86,7 +86,7 @@ export const products = [
         name: "Termo Térmico Acero Inoxidable",
         description: "Mantiene tus bebidas calientes o frías por hasta 12 horas. Ideal para viajes o la oficina, con diseño ergonómico y tapa a prueba de derrames.",
         price: 45.99,
-        isNew: true,
+        isNew: false,
         category: "Accesorios"
     },
     {
