@@ -26,7 +26,7 @@ export default function HeroSection() {
                             </div>
 
                             <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                                Productos accesibles para toda la familia
+                                Productos asequibles para toda la familia
                             </h2>
 
                             <p className="text-white/90 text-lg">
