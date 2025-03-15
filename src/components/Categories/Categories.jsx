@@ -12,9 +12,9 @@ export default function Categories() {
 
     const categoryData = [
         { name: "Cocina", image: "cocina.webp" },
-        { name: "Oficina", image: "oficina.webp" },
-        { name: "Iluminación", image: "iluminacion.webp" },
-        { name: "Belleza", image: "belleza.webp" }
+        { name: "Belleza", image: "belleza.webp" },
+        { name: "Iluminacion", image: "iluminacion.webp" },
+        { name: "Accesorios", image: "accesorios.webp" }
     ];
 
     return (
