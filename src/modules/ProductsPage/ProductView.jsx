@@ -17,7 +17,7 @@ export default function ProductView() {
 
     const { image, name, description, price, category, isNew } = product;
 
-    const phoneNumber = "573003736058";
+    const phoneNumber = "573028167960";
     const productUrl = window.location.href;
 
     const message = `👋 Hola Marly, estoy interesado en este producto:

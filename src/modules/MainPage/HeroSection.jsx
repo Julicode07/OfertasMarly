@@ -2,7 +2,7 @@
 import React from "react";
 export default function HeroSection() {
 
-    const phoneNumber = "573003736058";
+    const phoneNumber = "573028167960";
 
     const message = `👋 Hola Marly ...`;
 
