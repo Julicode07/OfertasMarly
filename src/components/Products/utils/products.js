@@ -77,7 +77,7 @@ export const products = [
         name: "Porta Snack Hermético",
         description: "Lleva tu snack con estilo y frescura con este contenedor hermético. Ideal para la oficina o el colegio. Capacidad: 560ml + 310ml.",
         price: 16.000,
-        isNew: true,
+        isNew: false,
         category: "Cocina"
     },
     {
@@ -179,4 +179,95 @@ export const products = [
         isNew: true,
         category: "Cocina"
     },
+    {
+        id: 21,
+        image: "/images/Products/producto21.webp",
+        name: "Termo Grande 1.38L",
+        description: "Termo de 1380ml ideal para llevar agua u otras bebidas contigo durante el día.",
+        price: 15.000,
+        isNew: true,
+        category: "Accesorios"
+    },
+    {
+        id: 22,
+        image: "/images/Products/producto22.webp",
+        name: "Cesta de Ropa x3 Cajones",
+        description: "Organizador de ropa con 3 cajones espaciosos, ideal para mantener la ropa ordenada y accesible.",
+        price: 45.000,
+        isNew: true,
+        category: "Hogar"
+    },
+    {
+        id: 23,
+        image: "/images/Products/producto23.webp",
+        name: "Crema Exfoliante 480ml",
+        description: "Crema exfoliante disponible en tres variedades: avena y miel, maracuyá y café. Ideal para el cuidado y renovación de la piel.",
+        price: 15.000,
+        isNew: true,
+        category: "Belleza"
+    },
+    {
+        id: 24,
+        image: "/images/Products/producto24.webp",
+        name: "Lámpara de Planetas",
+        description: "Lámpara decorativa de cristal y base de madera con diseño de planetas. Dimensiones: 8cm de alto y 6cm de ancho.",
+        price: 16.000,
+        isNew: true,
+        category: "Iluminacion"
+    },
+    {
+        id: 25,
+        image: "/images/Products/producto25.webp",
+        name: "Perchero con Repisa",
+        description: "Perchero con repisa ideal para organizar espacios. Dimensiones: 20cm de alto, 30cm de largo y 4cm de ancho.",
+        price: 15.000,
+        isNew: true,
+        category: "Hogar"
+    },
+    {
+        id: 26,
+        image: "/images/Products/producto26.webp",
+        name: "Perchero con Repisa",
+        description: "Perchero con repisa ideal para organizar espacios. Dimensiones: 15cm de alto, 30cm de largo y 4cm de ancho.",
+        price: 15.000,
+        isNew: true,
+        category: "Hogar"
+    },
+    {
+        id: 27,
+        image: "/images/Products/producto27.webp",
+        name: "Perchero Multifuncional",
+        description: "Perchero con estantes y repisas para almacenamiento. Ideal para organizar ropa, zapatos y accesorios en el hogar.",
+        price: 52.000,
+        isNew: true,
+        category: "Hogar"
+    },
+    {
+        id: 28,
+        image: "/images/Products/producto28.webp",
+        name: "Armario de Tela",
+        description: "Armario portátil con estructura metálica y cubierta de tela. Cuenta con varios compartimentos y barras para colgar ropa. Dimensiones: 175cm de alto, 130cm de ancho y 45cm de profundidad.",
+        price: 75.000,
+        isNew: true,
+        category: "Hogar"
+    },
+    {
+        id: 29,
+        image: "/images/Products/producto29.webp",
+        name: "Toalla para el Cabello",
+        description: "Toalla de secado rápido para el cabello, fabricada en 100% poliéster. Disponible en colores: lila, beige, vino, azul, verde y rosa. Ideal para absorber la humedad y facilitar el peinado.",
+        price: 10.000,
+        isNew: true,
+        category: "Belleza"
+    },
+    {
+        id: 30,
+        image: "/images/Products/producto30.webp",
+        name: "Termo Metálico 550ml",
+        description: "Termo de acero inoxidable con diseño de la Torre Eiffel. Mantiene la temperatura de tus bebidas frías o calientes por varias horas. Disponible en colores: negro, azul, rosa, dorado y plateado. Incluye correa para fácil transporte.",
+        price: 18.000,
+        isNew: true,
+        category: "Accesorios"
+    }
+
 ];
