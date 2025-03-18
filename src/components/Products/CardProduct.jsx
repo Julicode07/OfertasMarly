@@ -2,7 +2,7 @@ import React from "react";
 export default function CardProduct({ product }) {
     if (!product) return null;
 
-    const { id, image, name, description, price, category, isNew } = product;
+    const { id, image, name, description, price, category, isNew, availability } = product;
 
     return (
         <a href={`/producto/${id}`} className="group bg-white rounded-lg border border-gray-200 overflow-hidden transition-all hover:shadow-md">
@@ -16,11 +16,17 @@ export default function CardProduct({ product }) {
                     />
                 </div>
 
-                {isNew && (
-                    <span className="absolute top-2 left-2 bg-blue-600 text-white font-semibold px-2 py-1 text-xs rounded-full shadow-md">
-                        Nuevo
+                {availability === 0 ? (
+                    <span className="absolute top-2 right-2 bg-red-600 text-white font-semibold px-2 py-1 text-xs rounded-full shadow-md">
+                        Agotado
                     </span>
-                )}
+                ) :
+                    isNew && (
+                        <span className="absolute top-2 left-2 bg-blue-600 text-white font-semibold px-2 py-1 text-xs rounded-full shadow-md">
+                            Nuevo
+                        </span>
+                    )
+                }
             </div>
 
             <div className="px-4 pt-4 pb-2 text-left">

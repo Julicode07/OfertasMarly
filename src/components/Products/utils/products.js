@@ -6,7 +6,7 @@ export const products = [
         description: "Consigue un filo perfecto en segundos con este afilador seguro y fácil de usar. Ideal para todo tipo de cuchillos, garantizando cortes precisos y sin esfuerzo.",
         price: 12.000,
         isNew: false,
-        category: "Cocina"
+        category: "Cocina",
     },
     {
         id: 2,
@@ -69,7 +69,8 @@ export const products = [
         description: "Diseño premium con aislamiento térmico para mantener tus bebidas a temperatura ideal. Perfecto para café, té o bebidas frías. 500ml.",
         price: 22.000,
         isNew: false,
-        category: "Accesorios"
+        category: "Accesorios",
+        availability: 0
     },
     {
         id: 9,
@@ -96,7 +97,7 @@ export const products = [
         description: "Set de melamina resistente a golpes y fácil de limpiar. Diseño elegante ideal para el hogar o picnic. Práctico y duradero.",
         price: 29.000,
         isNew: true,
-        category: "Cocina"
+        category: "Cocina",
     },
     {
         id: 12,
@@ -268,6 +269,32 @@ export const products = [
         price: 18.000,
         isNew: true,
         category: "Accesorios"
+    },
+    {
+        id: 31,
+        image: "/images/Products/producto31.webp",
+        name: "Atomizador de Aceite",
+        description: "Atomizador de acero inoxidable para aceite o vinagre. Perfecto para cocinar de manera saludable con una distribución uniforme del aceite. Ideal para ensaladas, carnes y más.",
+        price: 12.000,
+        isNew: true,
+        category: "Cocina"
+    },
+    {
+        id: 32,
+        image: "/images/Products/producto32.webp",
+        name: "Dispensador de Agua Recargable",
+        description: "Bomba eléctrica para garrafón de agua con botón táctil y luz LED. Fácil de usar, recargable por USB y compatible con la mayoría de los botellones.",
+        price: 16.000,
+        isNew: true,
+        category: "Hogar"
+    },
+    {
+        id: 33,
+        image: "/images/Products/producto33.webp",
+        name: "Porta Papel de Cocina",
+        description: "Soporte metálico para rollos de papel de cocina, diseño elegante y resistente. Ideal para mantener el papel accesible y organizado.",
+        price: 11.000,
+        isNew: true,
+        category: "Hogar"
     }
-
 ];

@@ -11,11 +11,11 @@ export default function ProductSection() {
 
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
-                    {products.slice(0, 10).map(product => (
+                    {products.slice(-10).map(product => (
                         <CardProduct key={product.id} product={product} />
                     ))}
-
                 </div>
+
                 <a href="/productos"
                     className="w-full md:w-auto mt-6 flex items-center justify-center gap-2 bg-blue-700 text-white hover:shadow-xl font-semibold px-4 py-3 rounded-lg cursor-pointer group text-nowrap transition-all duration-300">
                     <span>Ver todos los productos</span>

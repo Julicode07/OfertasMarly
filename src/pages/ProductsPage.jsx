@@ -63,7 +63,7 @@ export default function ProductsPage() {
     return (
         <main className="pb-18 md:pb-0 h-screen flex flex-col overflow-hidden">
             <Navbar />
-            <div className=" flex flex-1 md:flex-row">
+            <div className=" flex flex-1 md:flex-row max-h-[calc(100vh-65px)]">
                 {sidebarOpen && (
                     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-20 md:hidden"
                         onClick={() => setSidebarOpen(false)}></div>
@@ -86,7 +86,7 @@ export default function ProductsPage() {
                         <h3 className="font-bold mb-2 sticky top-14 bg-white p-2 z-10">
                             Categoría
                         </h3>
-                        <ul className="space-y-2 overflow-y-auto max-h-[40vh] md:max-h-[45vh]">
+                        <ul className="space-y-2 overflow-y-auto max-h-[40vh] md:max-h-[45vh] pr-2">
                             <li>
                                 <button onClick={() => handleCategorySelect("todos")}
                                     className={`block w-full text-left px-4 py-2 rounded-xl cursor-pointer ${selectedCategory === "todos" ? "bg-blue-600 text-white font-bold" : "hover:bg-gray-200"}`}>
