@@ -296,5 +296,23 @@ export const products = [
         price: 11.000,
         isNew: true,
         category: "Hogar"
+    },
+    {
+        id: 34,
+        image: "/images/Products/producto34.webp",
+        name: "Toalla Absorbente",
+        description: "Toalla multiusos ultra absorbente de secado rápido con dimensiones de 66 cm de largo y 43 cm de ancho. Ideal para el hogar, autos y mascotas. Fabricada con material de alta calidad para una mayor durabilidad.",
+        price: 15.000,
+        isNew: true,
+        category: "Hogar"
+    },
+    {
+        id: 35,
+        image: "/images/Products/producto35.webp",
+        name: "Pack de Medias Animales",
+        description: "Pack de 12 medias con diseños de animales, ideales para brindar comodidad y estilo. Material suave y elástico, perfecto para el uso diario.",
+        price: 28.000,
+        isNew: true,
+        category: "Ropa"
     }
 ];
