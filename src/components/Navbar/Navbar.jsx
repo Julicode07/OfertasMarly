@@ -44,12 +44,12 @@ export default function Navbar() {
                         <Link href="/productos" className={location.pathname.startsWith("/productos") ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}>
                             Productos
                         </Link>
-                        <Link href="/ofertas" className={location.pathname === "/ofertas" ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}>
+                        {/*  <Link href="/ofertas" className={location.pathname === "/ofertas" ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}>
                             Ofertas
                         </Link>
                         <Link href="/contacto" className={location.pathname === "/contacto" ? "text-blue-600" : "text-gray-700 hover:text-blue-600"}>
                             Contacto
-                        </Link>
+                        </Link> */}
                     </nav>
 
                     <div className="flex items-center justify-end gap-8 pr-3 hidden">

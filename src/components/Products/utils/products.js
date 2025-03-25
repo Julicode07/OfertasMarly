@@ -174,9 +174,9 @@ export const products = [
     {
         id: 20,
         image: "/images/Products/producto20.webp",
-        name: "Picatodo recargable",
-        description: "Picadora portátil recargable, fácil de usar y perfecta para picar ingredientes rápidamente. Cuenta con una capacidad de 100 ml, una corriente de trabajo de 10A y un diseño compacto de 12 cm, ideal para cualquier cocina.",
-        price: 18.000,
+        name: "Mini procesador de alimentos USB",
+        description: "Procesador de alimentos portátil con capacidad de 250ml y carga USB recargable. Ideal para picar ajo, chile, jengibre y más. Su diseño compacto y práctico permite usarlo en cualquier lugar.",
+        price: 30.000,
         isNew: true,
         category: "Cocina"
     },
@@ -266,7 +266,7 @@ export const products = [
         image: "/images/Products/producto30.webp",
         name: "Termo Metálico 550ml",
         description: "Termo de acero inoxidable con diseño de la Torre Eiffel. Mantiene la temperatura de tus bebidas frías o calientes por varias horas. Disponible en colores: negro, azul, rosa, dorado y plateado. Incluye correa para fácil transporte.",
-        price: 18.000,
+        price: 20.000,
         isNew: true,
         category: "Accesorios"
     },
@@ -286,7 +286,7 @@ export const products = [
         description: "Bomba eléctrica para garrafón de agua con botón táctil y luz LED. Fácil de usar, recargable por USB y compatible con la mayoría de los botellones.",
         price: 16.000,
         isNew: true,
-        category: "Hogar"
+        category: "Cocina"
     },
     {
         id: 33,
@@ -314,5 +314,59 @@ export const products = [
         price: 28.000,
         isNew: true,
         category: "Ropa"
+    },
+    {
+        id: 36,
+        image: "/images/Products/producto36.webp",
+        name: "Linterna recargable con panel solar",
+        description: "Linterna LED de alta potencia con carga USB y panel solar integrado. Cuenta con luz principal y luz lateral, ideal para emergencias y actividades al aire libre.",
+        price: 20.000,
+        isNew: true,
+        category: "Iluminacion"
+    },
+    {
+        id: 37,
+        image: "/images/Products/producto37.webp",
+        name: "Tapete de agua para bebés",
+        description: "Tapete inflable de agua de 66cm x 50cm, ideal para el juego y desarrollo sensorial.",
+        price: 14.000,
+        isNew: true,
+        category: "Juguetes y bebés"
+    },
+    {
+        id: 38,
+        image: "/images/Products/producto38.webp",
+        name: "Juego educativo de conteo",
+        description: "Set de aprendizaje para niños con tarjetas, cuentas de colores y pinzas para desarrollar habilidades matemáticas y motoras.",
+        price: 30.000,
+        isNew: true,
+        category: "Juguetes y bebés"
+    },
+    {
+        id: 39,
+        image: "/images/Products/producto39.webp",
+        name: "Cortador en espiral de verduras",
+        description: "Práctico cortador para hacer tiras finas de verduras como zanahorias y pepinos. Ideal para ensaladas y platos decorativos.",
+        price: 10.000,
+        isNew: true,
+        category: "Cocina"
+    },
+    {
+        id: 40,
+        image: "/images/Products/producto40.webp",
+        name: "Colador con embudo",
+        description: "Colador con embudo de plástico, ideal para filtrar líquidos y evitar residuos sólidos. Tiene una circunferencia de 18 cm y viene en varios colores.",
+        price: 12.000,
+        isNew: true,
+        category: "Cocina"
+    },
+    {
+        id: 41,
+        image: "/images/Products/producto41.webp",
+        name: "Termo kawaii",
+        description: "Botella de agua de 600ml con diseños de caricaturas kawaii. Incluye una correa ajustable y tapa con seguro para evitar derrames. Disponible en colores azul, rosa, morado, rojo y negro.",
+        price: 22.000,
+        isNew: true,
+        category: "Accesorios"
     }
 ];
