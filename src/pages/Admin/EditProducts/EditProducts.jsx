@@ -92,7 +92,7 @@ export default function EditProducts() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {products.map((product) => (
                     <div key={product._id} className="p-4 border rounded shadow bg-white">
-                        <img src={import.meta.env.VITE_BACKEND_URL + product.image} alt={product.name} className="w-full h-40 object-cover mb-2 rounded" />
+                        <img src={product.image} alt={product.name} className="w-full h-40 object-cover mb-2 rounded" />
                         <h3 className="text-lg font-semibold">{product.name}</h3>
                         <p className="text-gray-600">{product.description}</p>
                         <button
