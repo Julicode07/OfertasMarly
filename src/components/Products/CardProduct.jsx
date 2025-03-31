@@ -9,7 +9,7 @@ export default function CardProduct({ product }) {
             <div className="relative">
                 <div className="aspect-square overflow-hidden">
                     <img
-                        src={image || "/placeholder.svg"}
+                        src={import.meta.env.VITE_BACKEND_URL + image || "/placeholder.svg"}
                         alt={name}
                         className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"

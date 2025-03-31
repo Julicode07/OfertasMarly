@@ -1,4 +1,4 @@
-export const products = [
+/* export const products = [
     {
         id: 1,
         image: "/images/Products/producto10.webp",
@@ -370,3 +370,4 @@ export const products = [
         category: "Accesorios"
     }
 ];
+ */

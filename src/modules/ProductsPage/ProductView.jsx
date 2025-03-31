@@ -1,21 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../../components/Products/utils/products";
 import Navbar from "../../components/Navbar/Navbar";
 
 export default function ProductView() {
     const { id } = useParams();
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                setLoading(true);
+                const response = await fetch(import.meta.env.VITE_BACKEND_API_URL + "/products");
+                if (!response.ok) throw new Error("Error al obtener productos");
+
+                const data = await response.json();
+                setProducts(data.products || []);
+                console.log("Productos obtenidos:", products);
+
+            } catch (err) {
+                console.error("Error al obtener productos:", err);
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProducts();
+    }, []);
+
+    useEffect(() => {
+        console.log("Producto encontrado:", products.find((p) => p.id === Number(id)));
+    }, [products, id]);
+
+    if (loading) {
+        return <div className="flex items-center justify-center h-screen text-gray-600 text-lg">Cargando...</div>;
+    }
+
+    if (error) {
+        return <div className="flex items-center justify-center h-screen text-red-600 text-lg">{error}</div>;
+    }
+
     const product = products.find((p) => p.id === Number(id));
 
     if (!product) {
-        return (
-            <div className="flex items-center justify-center h-screen text-gray-600 text-lg">
-                Producto no encontrado
-            </div>
-        );
+        return <div className="flex items-center justify-center h-screen text-gray-600 text-lg">Producto no encontrado</div>;
     }
 
     const { image, name, description, price, category, isNew } = product;
+    const formattedPrice = price ? price.toFixed(3) + " COP" : "Precio no disponible";
 
     const phoneNumber = "573028167960";
     const productUrl = window.location.href;
@@ -23,7 +57,7 @@ export default function ProductView() {
     const message = `👋 Hola Marly, estoy interesado en este producto:
 📌 *Nombre:* ${name}
 📖 *Descripción:* ${description}
-💰 *Precio:* $${price.toFixed(3)}
+💰 *Precio:* ${formattedPrice}
 🏷️ *Categoría:* ${category || "General"}
 🔗 *Enlace del producto:* ${productUrl}`;
 
@@ -36,7 +70,7 @@ export default function ProductView() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="relative flex justify-center">
                         <img
-                            src={image || "/placeholder.svg"}
+                            src={import.meta.env.VITE_BACKEND_URL + image || "/placeholder.svg"}
                             alt={name}
                             className="w-full max-h-[300px] md:max-h-[500px] rounded-lg object-contain"
                             loading="lazy"
@@ -66,7 +100,7 @@ export default function ProductView() {
                             </div>
                         </div>
                         <div className="hidden sm:flex mt-6 flex-col md:flex-row items-start sm:items-center md:justify-between gap-4">
-                            <span className="text-3xl font-bold text-gray-900">${price.toFixed(3) + " COP"}</span>
+                            <span className="text-3xl font-bold text-gray-900">{formattedPrice}</span>
                             <a
                                 href={whatsappUrl}
                                 target="_blank"
@@ -81,7 +115,7 @@ export default function ProductView() {
                 </div>
             </div>
             <div className="sm:hidden fixed bottom-18 left-0 w-full bg-slate-100 shadow-lg p-4 flex flex-col md:flex-row items-center justify-between gap-4">
-                <span className="text-3xl font-bold text-gray-900">${price.toFixed(3) + " COP"}</span>
+                <span className="text-3xl font-bold text-gray-900">{formattedPrice}</span>
                 <a
                     href={whatsappUrl}
                     target="_blank"

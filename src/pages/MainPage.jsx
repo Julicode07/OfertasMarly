@@ -11,8 +11,8 @@ export default function MainPage() {
             <HeroSection />
             <Categories />
             <ProductSection />
-            <footer class="bg-white hidden md:block">
-                <div class="border-t border-gray-200 py-6 text-center text-gray-500 text-sm font-bold">
+            <footer className="bg-white hidden md:block">
+                <div className="border-t border-gray-200 py-6 text-center text-gray-500 text-sm font-bold">
                     <p>© {new Date().getFullYear()} Ofertas Marly - Todos los derechos reservados.</p>
                 </div>
 
