@@ -12,7 +12,7 @@ export default function CategoriesPage() {
                 if (!response.ok) throw new Error("Error al obtener productos");
 
                 const data = await response.json();
-                setProducts(data);
+                setProducts(Array.isArray(data.products) ? data.products : []);
             } catch (err) {
                 console.error("Error al obtener productos:", err);
             } finally {

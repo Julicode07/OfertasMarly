@@ -70,7 +70,7 @@ export default function ProductView() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="relative flex justify-center">
                         <img
-                            src={import.meta.env.VITE_BACKEND_URL + image || "/placeholder.svg"}
+                            src={image || "/placeholder.svg"}
                             alt={name}
                             className="w-full max-h-[300px] md:max-h-[500px] rounded-lg object-contain"
                             loading="lazy"

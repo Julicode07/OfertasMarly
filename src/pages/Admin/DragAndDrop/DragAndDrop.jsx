@@ -193,7 +193,7 @@ const DragAndDrop = () => {
                     {products.map((product, index) => (
                         <div key={index} className="border p-6 rounded-lg bg-gray-800 mb-4">
                             <img
-                                src={import.meta.env.VITE_BACKEND_URL + product.image}
+                                src={product.image}
                                 alt="Producto"
                                 className="w-32 h-32 object-cover rounded-lg mb-4 mx-auto"
                             />
@@ -227,10 +227,13 @@ const DragAndDrop = () => {
                                 required
                             >
                                 <option value="">Selecciona una categoría</option>
-                                <option value="electronica">Electrónica</option>
-                                <option value="ropa">Ropa</option>
-                                <option value="hogar">Hogar</option>
-                                <option value="accesorios">Accesorios</option>
+                                <option value="Cocina">Cocina</option>
+                                <option value="Iluminacion">Iluminacion</option>
+                                <option value="Ropa">Ropa</option>
+                                <option value="Hogar">Hogar</option>
+                                <option value="Belleza">Belleza</option>
+                                <option value="Viaje">Viaje</option>
+                                <option value="Accesorios">Accesorios</option>
                             </select>
 
                             <label className="flex items-center gap-2 text-white mb-4">
