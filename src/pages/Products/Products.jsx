@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
-import Navbar from "../components/Navbar/Navbar";
-import CardProduct from "../components/Products/CardProduct";
+import Navbar from "../../components/Navbar/Navbar";
+import CardProduct from "../../modules/Products/CardProduct";
 
-export default function ProductsPage() {
+export default function Products() {
     const [searchParams, setSearchParams] = useSearchParams();
     const initialCategory = searchParams.get("categoria") || "todos";
     const initialCondition = searchParams.get("estado") || "todos";

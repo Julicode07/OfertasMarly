@@ -11,8 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
-src/utils/products.js
-src/utils/products.json
+src/modules/Products/utils/products.js
+src/modules/Products/utils/products.json
 
 # Editor directories and files
 .vscode/*

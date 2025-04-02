@@ -1,8 +1,8 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import HeroSection from '../modules/MainPage/HeroSection';
-import ProductSection from '../components/Products/ProductSection';
-import Categories from '../components/Categories/Categories';
+import ProductSection from '../modules/Products/ProductSection';
+import Categories from '../modules/Categories/Categories';
 
 export default function MainPage() {
     return (

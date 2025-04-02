@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const DragAndDrop = () => {
+const UploadProducts = () => {
     const [files, setFiles] = useState([]);
     const [dragging, setDragging] = useState(false);
     const [uploading, setUploading] = useState(false);
@@ -274,4 +274,4 @@ const DragAndDrop = () => {
     );
 };
 
-export default DragAndDrop;
+export default UploadProducts;
