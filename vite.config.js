@@ -2,6 +2,8 @@ import react from "@vitejs/plugin-react-swc";
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
 import ViteImagemin from 'vite-plugin-imagemin'
+import path from 'path';
+
 export default defineConfig({
   base: "/",
   plugins: [
@@ -13,6 +15,11 @@ export default defineConfig({
       svgo: { plugins: [{ removeViewBox: false }] },
     }),
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
   optimizeDeps: {
     exclude: ["@nextui-org/react"],
   },

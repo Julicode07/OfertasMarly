@@ -35,7 +35,11 @@ const DragAndDrop = () => {
     const handleInputChange = (index, field, value) => {
         setProducts((prevProducts) => {
             const updatedProducts = [...prevProducts];
-            updatedProducts[index] = { ...updatedProducts[index], [field]: value };
+            updatedProducts[index] = {
+                ...updatedProducts[index],
+                [field]: value,
+                isNew: updatedProducts[index].isNew ?? true
+            };
             return updatedProducts;
         });
     };
@@ -98,7 +102,7 @@ const DragAndDrop = () => {
                 name: product.name,
                 description: product.description,
                 price: product.price,
-                isNew: product.isNew,
+                isNew: product.isNew ?? true,
                 category: product.category,
                 availability: product.availability
             };
