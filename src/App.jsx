@@ -2,6 +2,7 @@ import { Analytics } from "@vercel/analytics/react";
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Loader from "./components/Loader/Loader";
+const NotFound = React.lazy(() => import("./pages/NotFound"));
 const MainPage = React.lazy(() => import("./pages/MainPage"));
 const ProductsPage = React.lazy(() => import("./pages/Products/Products"));
 const ProductView = React.lazy(() => import("./pages/Products/ProductView"));
@@ -17,6 +18,7 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/*" element={<NotFound />} />
           <Route path="/productos" element={<ProductsPage />} />
           <Route path="/producto/:id" element={<ProductView />} />
           <Route path="/categorias" element={<CategoriesPage />} />
