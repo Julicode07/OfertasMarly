@@ -3,6 +3,7 @@ import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Loader from "./components/Loader/Loader";
 const NotFound = React.lazy(() => import("./pages/NotFound"));
+const Admin = React.lazy(() => import("./pages/Admin/Admin"));
 const MainPage = React.lazy(() => import("./pages/MainPage"));
 const ProductsPage = React.lazy(() => import("./pages/Products/Products"));
 const ProductView = React.lazy(() => import("./pages/Products/ProductView"));
@@ -22,6 +23,7 @@ function App() {
           <Route path="/productos" element={<ProductsPage />} />
           <Route path="/producto/:id" element={<ProductView />} />
           <Route path="/categorias" element={<CategoriesPage />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/admin/upload-images" element={<UploadProducts />} />
           <Route path="/admin/edit-products" element={<EditProducts />} />
           <Route path="/admin/delete-products" element={<DeleteProducts />} />
