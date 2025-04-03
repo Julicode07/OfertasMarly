@@ -83,7 +83,7 @@ export default function Aside({ children }) {
                         </button>
                     </div>
                     {/* CONTENT */}
-                    <div className="p-4">
+                    <div className="pl-4 pt-4">
                         {children}
                     </div>
                 </motion.div>
