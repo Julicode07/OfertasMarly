@@ -1,10 +1,10 @@
 import "./Loader.css";
 
-const Loader = () => {
+const Loader = ({ bg, text, fill }) => {
   return (
-    <div className="fixed inset-0 z-50 bg-white/80 flex items-center justify-center">
+    <div className={`fixed inset-0 z-50 flex items-center justify-center ${bg}`}>
       <svg
-        className="w-16 h-16 text-gray-200 animate-spin fill-blue-500"
+        className={`w-16 h-16 ${text} animate-spin ${fill}`}
         viewBox="0 0 100 101"
         xmlns="http://www.w3.org/2000/svg"
       >

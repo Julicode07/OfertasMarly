@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { ShoppingCart, Home, Tag, List, Phone, User } from "lucide-react";
+import { ShoppingCart, Home, Tag, List, User } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { Link } from "@heroui/react";
 import { motion } from "framer-motion";
