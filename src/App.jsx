@@ -44,7 +44,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Admin />} />
                 <Route path="/products" element={<AdminProducts />} />
-                <Route path="/products/add" element={<AddProducts />} />
+                <Route path="/product/add" element={<AddProducts />} />
                 <Route path="/upload-images" element={<UploadProducts />} />
                 <Route path="/edit-products" element={<EditProducts />} />
                 <Route path="/delete-products" element={<DeleteProducts />} />
