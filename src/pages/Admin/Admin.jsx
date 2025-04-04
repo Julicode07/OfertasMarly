@@ -6,7 +6,7 @@ import { CirclePlus } from "lucide-react";
 export default function Admin() {
     return (
         <Aside>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 pt-4">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 md:gap-0">
                     <div>
                         <h1 className="text-4xl font-black text-left">Panel de Administración</h1>

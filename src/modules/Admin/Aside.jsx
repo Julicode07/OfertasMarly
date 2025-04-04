@@ -34,7 +34,7 @@ export default function Aside({ children }) {
                 >
                     <div className="flex flex-col h-screen">
                         {/* Header */}
-                        <div className="h-15 flex items-center p-3 border-b border-zinc-700">
+                        <div className="h-14 flex items-center p-3">
                             <div className="flex items-center space-x-2">
                                 <motion.img
                                     src="/BagIcon2.webp"
@@ -64,7 +64,7 @@ export default function Aside({ children }) {
                 </motion.div>
 
                 <motion.div
-                    className="flex flex-col flex-1 bg-zinc-900"
+                    className="flex flex-col flex-1 bg-zinc-900 h-screen"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.2 }}
@@ -83,7 +83,7 @@ export default function Aside({ children }) {
                         </button>
                     </div>
                     {/* CONTENT */}
-                    <div className="pl-4 pt-4">
+                    <div className="px-4 h-full">
                         {children}
                     </div>
                 </motion.div>

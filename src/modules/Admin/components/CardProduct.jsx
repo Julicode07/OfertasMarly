@@ -67,10 +67,10 @@ export default function CardProduct({ product }) {
                 <p className="font-bold text-white">${product.price}.000</p>
 
                 <div className="flex gap-2 mt-1 w-full">
-                    <button className="flex items-center justify-center gap-2 px-4 py-1 bg-zinc-800 rounded-lg border border-zinc-500 hover:bg-zinc-700 transition w-full">
+                    <a href={`/admin/products/edit/${product.id}`} className="flex items-center justify-center gap-2 px-4 py-1 bg-zinc-800 rounded-lg border border-zinc-500 hover:bg-zinc-700 transition w-full cursor-pointer">
                         <Pencil className="w-4 h-4 font-bold" />
                         <span className="text-sm font-bold">Editar</span>
-                    </button>
+                    </a>
                     <button className="px-2 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
                         <Trash2 className="w-4 h-4" />
                     </button>

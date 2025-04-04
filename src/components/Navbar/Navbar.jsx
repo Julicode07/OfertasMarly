@@ -52,7 +52,7 @@ export default function Navbar() {
                         </Link> */}
                     </nav>
 
-                    <div className="flex items-center justify-end gap-8 pr-3 hidden">
+                    <div className="flex items-center justify-end gap-8 pr-3">
                         <Link href="/cuenta" className="relative hidden md:flex items-center justify-center gap-2">
                             <i className="ri-user-3-line text-base"></i>
                             <span className="text-sm text-gray-800 hover:text-blue-600 font-bold">Cuenta</span>
@@ -113,7 +113,7 @@ export default function Navbar() {
                             <button className="bg-red-100 rounded-b-lg block w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
                                 Cerrar Sesión
                             </button> */}
-                            <p className="p-4">Proximamente</p>
+                            <a href="/admin" className="p-4">Proximamente</a>
                         </motion.div>
                     )}
                 </div>
