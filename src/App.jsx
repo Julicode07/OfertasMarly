@@ -2,8 +2,6 @@ import { Analytics } from "@vercel/analytics/react";
 import React, { Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Loader from "./components/Loader/Loader";
-import AddProducts from "./pages/Admin/AddProduct";
-const EditProduct = React.lazy(() => import("./pages/Admin/EditProduct"));
 
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 const MainPage = React.lazy(() => import("./pages/MainPage"));
@@ -13,9 +11,8 @@ const CategoriesPage = React.lazy(() => import("./pages/Categories"));
 
 const Admin = React.lazy(() => import("./pages/Admin/Admin"));
 const AdminProducts = React.lazy(() => import("./pages/Admin/Products"));
-const UploadProducts = React.lazy(() => import("./pages/Admin/UploadProducts/UploadProducts"));
-const EditProducts = React.lazy(() => import("./pages/Admin/EditProducts/EditProducts"));
-const DeleteProducts = React.lazy(() => import("./pages/Admin/DeleteProducts/DeleteProducts"));
+const AddProducts = React.lazy(() => import("./pages/Admin/AddProduct"));
+const EditProduct = React.lazy(() => import("./pages/Admin/EditProduct"));
 
 function App() {
   return (
@@ -47,9 +44,6 @@ function App() {
                 <Route path="/products" element={<AdminProducts />} />
                 <Route path="/products/add" element={<AddProducts />} />
                 <Route path="/products/edit/:id" element={<EditProduct />} />
-                <Route path="/upload-images" element={<UploadProducts />} />
-                <Route path="/edit-products" element={<EditProducts />} />
-                <Route path="/delete-products" element={<DeleteProducts />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

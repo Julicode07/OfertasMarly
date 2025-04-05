@@ -25,7 +25,6 @@ export default function Aside({ children }) {
     return (
         <>
             <div className="bg-zinc-900 flex h-screen overflow-hidden text-white select-none">
-                {/* SIDEBAR */}
                 <motion.div
                     initial={{ width: "55px" }}
                     animate={{ width: isOpen ? "230px" : "55px" }}
@@ -33,7 +32,6 @@ export default function Aside({ children }) {
                     className="hidden md:block bg-zinc-950 border-r border-zinc-700 h-screen overflow-hidden"
                 >
                     <div className="flex flex-col h-screen">
-                        {/* Header */}
                         <div className="h-14 flex items-center p-3">
                             <div className="flex items-center space-x-2">
                                 <motion.img
@@ -82,36 +80,54 @@ export default function Aside({ children }) {
                             </motion.div>
                         </button>
                     </div>
-                    {/* CONTENT */}
                     <div className="px-4 h-full">
                         {children}
                     </div>
                 </motion.div>
             </div>
-            <nav className="fixed bottom-0 left-0 w-full bg-zinc-900 shadow-lg border-t border-zinc-700 md:hidden flex justify-between py-2 z-50 h-16">
-                {[
-                    { href: "/", icon: <LayoutDashboard className="h-5 w-5" />, label: "Inicio" },
-                    { href: "/categorias", icon: <Package className="h-5 w-5" />, label: "Categorías" },
-                    { href: "/productos", icon: <CirclePlus className="h-5 w-5" />, label: "Productos" }
-                ].map(({ href, icon, label }) => (
-                    <a
-                        key={href}
-                        href={href}
-                        className={`flex flex-col items-center justify-center gap-1 w-24 h-14 px-3 pt-1 pb-4 rounded-xl transition-all duration-200 ${location.pathname === href ? "bg-zinc-800 text-white" : "text-zinc-400 hover:text-white hover:bg-zinc-800"
-                            }`}
-                    >
-                        {icon}
-                        <span className="text-xs font-medium leading-none">{label}</span>
-                    </a>
-                ))}
 
-                <div className="relative">
+
+            <nav className="fixed bottom-0 left-0 w-full bg-zinc-800 shadow-lg md:hidden flex justify-between px-4 py-2 z-50 h-18">
+                <a
+                    href="/admin"
+                    className={`flex flex-col items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-200 ${location.pathname === "/admin"
+                        ? "bg-zinc-700 text-blue-400"
+                        : "text-zinc-300 hover:text-blue-400 hover:bg-zinc-800"
+                        }`}
+                >
+                    <LayoutDashboard className="h-6 w-6" />
+                    <span className="text-xs font-medium">Inicio</span>
+                </a>
+
+                <a
+                    href="/admin/products"
+                    className={`flex flex-col items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-200 ${location.pathname === "/admin/products"
+                        ? "bg-zinc-700 text-blue-400"
+                        : "text-zinc-300 hover:text-blue-400 hover:bg-zinc-800"
+                        }`}
+                >
+                    <Package className="h-6 w-6" />
+                    <span className="text-xs font-medium">Productos</span>
+                </a>
+
+                <a
+                    href="/admin/products/add"
+                    className={`flex flex-col items-center gap-1 px-3 py-2 rounded-2xl transition-all duration-200 ${location.pathname === "/admin/products/add" || location.pathname === "/producto/"
+                        ? "bg-zinc-700 text-blue-400"
+                        : "text-zinc-300 hover:text-blue-400 hover:bg-zinc-800"
+                        }`}
+                >
+                    <CirclePlus className="h-6 w-6" />
+                    <span className="text-xs font-medium">Añadir</span>
+                </a>
+
+                <div className="relative" ref={dropdownRef}>
                     <button
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                        className="flex flex-col items-center justify-center gap-1 w-24 h-14 px-3 pt-1 pb-4 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-800 focus:outline-none transition-all duration-200"
+                        className="flex flex-col items-center gap-1 px-3 py-2 rounded-2xl text-zinc-300 hover:text-blue-400 hover:bg-zinc-800 transition-all duration-200"
                     >
                         <User className="h-5 w-5" />
-                        <span className="text-xs font-medium leading-none">Cuenta</span>
+                        <span className="text-xs font-medium">Cuenta</span>
                     </button>
 
                     {isDropdownOpen && (
@@ -120,14 +136,19 @@ export default function Aside({ children }) {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 10 }}
                             transition={{ duration: 0.2 }}
-                            className="absolute bottom-14 right-0 w-48 bg-zinc-800 shadow-lg rounded-lg border border-zinc-700"
+                            className="absolute bottom-18 right-0 w-52 bg-zinc-800 text-zinc-100 shadow-xl rounded-lg border border-zinc-700"
                         >
-                            <p className="p-4 text-zinc-300">Próximamente</p>
+                            <p className="px-4 py-2 text-sm font-semibold border-b border-zinc-700">Marly Damaris</p>
+                            {/*                             <a href="/settings" className="block px-4 py-2 text-sm hover:bg-zinc-700 rounded transition">Configuración</a>
+                            <a href="/pedidos" className="block px-4 py-2 text-sm hover:bg-zinc-700 rounded transition">Mis Pedidos</a>
+                            <a href="/favoritos" className="block px-4 py-2 text-sm hover:bg-zinc-700 rounded transition">Favoritos</a> */}
+                            <a href="/" className="inline-block bg-zinc-700 hover:bg-red-500 hover:text-white text-red-400 w-full text-left px-4 py-2 text-sm rounded-b-lg transition">
+                                Cerrar Sesión
+                            </a>
                         </motion.div>
                     )}
                 </div>
             </nav>
-
 
         </>
     );

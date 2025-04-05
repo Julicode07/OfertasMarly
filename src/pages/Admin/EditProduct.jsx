@@ -12,7 +12,6 @@ export default function EditProduct() {
     const [success, setSuccess] = useState("");
     const [isDragging, setIsDragging] = useState(false);
 
-    // Estados para editar
     const [formData, setFormData] = useState({
         id: id,
         image: "",
@@ -124,10 +123,8 @@ export default function EditProduct() {
         setError("");
 
         try {
-            // Crear un nuevo FormData (usando un nombre diferente para evitar conflictos)
             const formDataToSend = new FormData();
 
-            // Agregar todos los campos del formulario
             formDataToSend.append("name", formData.name);
             formDataToSend.append("description", formData.description);
             formDataToSend.append("price", formData.price);
@@ -135,24 +132,18 @@ export default function EditProduct() {
             formDataToSend.append("category", formData.category);
             formDataToSend.append("availability", formData.availability);
 
-            // Si tenemos una imagen en formato base64 (recién subida), la convertimos a archivo
             if (image && image !== product.image) {
-                // Obtener el formato de la imagen (por ejemplo, 'image/jpeg')
                 const mimeType = image.split(';')[0].split(':')[1];
                 const fileName = `product-${id}.${mimeType.split('/')[1]}`;
 
-                // Convertir base64 a blob
                 const response = await fetch(image);
                 const blob = await response.blob();
 
-                // Crear un objeto File a partir del blob
                 const file = new File([blob], fileName, { type: mimeType });
 
-                // Añadir la imagen al FormData
                 formDataToSend.append("image", file);
             }
 
-            // Enviar la solicitud al servidor
             const apiResponse = await fetch(`${import.meta.env.VITE_BACKEND_API_URL}/products/${id}`, {
                 method: "PUT",
                 body: formDataToSend,
@@ -165,7 +156,6 @@ export default function EditProduct() {
             const data = await apiResponse.json();
             setSuccess("Producto actualizado correctamente");
 
-            // Actualizar el producto en el estado local
             setProduct({
                 ...product,
                 name: formData.name,
@@ -174,7 +164,7 @@ export default function EditProduct() {
                 isNew: formData.isNew,
                 category: formData.category,
                 availability: formData.availability,
-                image: data.image || image  // Usar la imagen devuelta por el servidor si está disponible
+                image: data.image || image
             });
 
         } catch (err) {
@@ -182,7 +172,6 @@ export default function EditProduct() {
             setError(err.message || "Error al actualizar el producto");
         } finally {
             setLoading(false);
-            // Limpiar los mensajes después de 3 segundos
             setTimeout(() => {
                 setError("");
                 setSuccess("");
@@ -193,7 +182,6 @@ export default function EditProduct() {
     return (
         <Aside>
             <div className="flex flex-col gap-4 h-full w-full overflow-y-auto pt-4 pb-4 md:pb-10 scrollbar-product-hide">
-                {/* Overlay de soltar imagen */}
                 {isDragging && (
                     <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center pointer-events-none">
                         <h2 className="text-3xl font-bold text-white">¡Suelta aquí para subir la imagen!</h2>
@@ -205,7 +193,6 @@ export default function EditProduct() {
                     <p className="text-zinc-400 font-medium">Actualiza la información y la imagen del producto</p>
                 </div>
 
-                {/* Mensajes de éxito o error */}
                 {success && (
                     <div className="bg-green-500/20 border border-green-500 text-green-500 p-3 rounded-md">
                         {success}

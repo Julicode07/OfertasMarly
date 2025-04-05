@@ -14,7 +14,7 @@ export default function Admin() {
                     </div>
 
                     <motion.a
-                        href="/admin/product/add"
+                        href="/admin/products/add"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="bg-white text-black flex items-center gap-2 px-4 py-2 rounded-lg font-semibold shadow-md hover:bg-zinc-200 transition-all"
