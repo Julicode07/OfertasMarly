@@ -9,16 +9,19 @@ export default function EditProduct() {
     const [image, setImage] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [success, setSuccess] = useState("");
     const [isDragging, setIsDragging] = useState(false);
 
     // Estados para editar
     const [formData, setFormData] = useState({
+        id: id,
+        image: "",
         name: "",
         description: "",
         price: "",
+        isNew: true,
         category: "",
-        available: true,
-        isNew: false,
+        availability: 1
     });
 
     useEffect(() => {
@@ -31,15 +34,15 @@ export default function EditProduct() {
                 const foundProduct = data.products?.find((p) => p.id === Number(id));
                 if (!foundProduct) throw new Error("Producto no encontrado");
 
-                setProduct(foundProduct);
+                setProduct(foundProduct || []);
                 setImage(foundProduct.image);
                 setFormData({
-                    name: foundProduct.name || "",
-                    description: foundProduct.description || "",
-                    price: foundProduct.price || "",
-                    category: foundProduct.category || "",
-                    available: foundProduct.available ?? true,
-                    isNew: foundProduct.isNew ?? false,
+                    name: foundProduct.name,
+                    description: foundProduct.description,
+                    price: foundProduct.price,
+                    isNew: foundProduct.isNew,
+                    category: foundProduct.category,
+                    availability: foundProduct.availability
                 });
             } catch (err) {
                 console.error("Error al obtener producto:", err);
@@ -114,16 +117,82 @@ export default function EditProduct() {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Aquí puedes enviar los datos actualizados al backend
-        console.log("Producto actualizado:", { ...formData, image });
-    };
+        setLoading(true);
+        setSuccess("");
+        setError("");
 
+        try {
+            // Crear un nuevo FormData (usando un nombre diferente para evitar conflictos)
+            const formDataToSend = new FormData();
+
+            // Agregar todos los campos del formulario
+            formDataToSend.append("name", formData.name);
+            formDataToSend.append("description", formData.description);
+            formDataToSend.append("price", formData.price);
+            formDataToSend.append("isNew", formData.isNew);
+            formDataToSend.append("category", formData.category);
+            formDataToSend.append("availability", formData.availability);
+
+            // Si tenemos una imagen en formato base64 (recién subida), la convertimos a archivo
+            if (image && image !== product.image) {
+                // Obtener el formato de la imagen (por ejemplo, 'image/jpeg')
+                const mimeType = image.split(';')[0].split(':')[1];
+                const fileName = `product-${id}.${mimeType.split('/')[1]}`;
+
+                // Convertir base64 a blob
+                const response = await fetch(image);
+                const blob = await response.blob();
+
+                // Crear un objeto File a partir del blob
+                const file = new File([blob], fileName, { type: mimeType });
+
+                // Añadir la imagen al FormData
+                formDataToSend.append("image", file);
+            }
+
+            // Enviar la solicitud al servidor
+            const apiResponse = await fetch(`${import.meta.env.VITE_BACKEND_API_URL}/products/${id}`, {
+                method: "PUT",
+                body: formDataToSend,
+            });
+
+            if (!apiResponse.ok) {
+                throw new Error("Error al actualizar el producto");
+            }
+
+            const data = await apiResponse.json();
+            setSuccess("Producto actualizado correctamente");
+
+            // Actualizar el producto en el estado local
+            setProduct({
+                ...product,
+                name: formData.name,
+                description: formData.description,
+                price: formData.price,
+                isNew: formData.isNew,
+                category: formData.category,
+                availability: formData.availability,
+                image: data.image || image  // Usar la imagen devuelta por el servidor si está disponible
+            });
+
+        } catch (err) {
+            console.error("Error en la actualización:", err);
+            setError(err.message || "Error al actualizar el producto");
+        } finally {
+            setLoading(false);
+            // Limpiar los mensajes después de 3 segundos
+            setTimeout(() => {
+                setError("");
+                setSuccess("");
+            }, 3000);
+        }
+    };
 
     return (
         <Aside>
-            <div className="flex flex-col gap-4 w-full h-full overflow-y-auto pt-4 pb-20 md:pb-14 scrollbar-product-hide">
+            <div className="flex flex-col gap-4 h-full w-full overflow-y-auto pt-4 pb-4 md:pb-10 scrollbar-product-hide">
                 {/* Overlay de soltar imagen */}
                 {isDragging && (
                     <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center pointer-events-none">
@@ -136,49 +205,100 @@ export default function EditProduct() {
                     <p className="text-zinc-400 font-medium">Actualiza la información y la imagen del producto</p>
                 </div>
 
+                {/* Mensajes de éxito o error */}
+                {success && (
+                    <div className="bg-green-500/20 border border-green-500 text-green-500 p-3 rounded-md">
+                        {success}
+                    </div>
+                )}
+
+                {error && (
+                    <div className="bg-red-500/20 border border-red-500 text-red-500 p-3 rounded-md">
+                        {error}
+                    </div>
+                )}
+
                 <div
                     onDrop={handleDrop}
                     onDragOver={handleDragOver}
                     onDragLeave={handleDragLeave}
-                    className="flex items-center border border-zinc-800 text-white rounded-lg shadow-lg p-5 w-full flex-1"
+                    className="flex items-center border border-zinc-800 text-white rounded-lg shadow-lg p-5 w-full flex-1 mb-16"
                 >
                     {loading ? (
                         <p className="text-zinc-400">Cargando producto...</p>
-                    ) : error ? (
+                    ) : error && !success ? (
                         <p className="text-red-500">Error: {error}</p>
-                    ) : image ? (
-                        <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-6 w-full">
+                    ) : (
+                        <form onSubmit={handleSubmit} className="flex flex-col md:flex-row md:items-start gap-6 w-full">
                             {/* Imagen */}
-                            <div className="relative aspect-square rounded-md overflow-hidden h-52 md:h-80 md:w-80">
-                                <img
-                                    alt={product?.name || "Preview"}
-                                    loading="lazy"
-                                    decoding="async"
-                                    className="object-cover absolute inset-0 h-full w-full"
-                                    src={image}
-                                />
-                                <button
-                                    type="button"
-                                    onClick={handleImageRemove}
-                                    className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        className="h-4 w-4"
+                            {image ? (
+                                <div className="relative aspect-square w-52 md:w-96 rounded-xl overflow-hidden shadow-lg my-auto mx-auto">
+                                    <img
+                                        alt={product?.name || "Preview"}
+                                        loading="lazy"
+                                        decoding="async"
+                                        className="object-cover absolute inset-0 w-full h-full"
+                                        src={image}
+                                    />
+
+                                    <button
+                                        type="button"
+                                        onClick={handleImageRemove}
+                                        className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-800 cursor-pointer transition-all duration-300 ease-in-out"
                                     >
-                                        <path d="M18 6 6 18"></path>
-                                        <path d="m6 6 12 12"></path>
-                                    </svg>
-                                </button>
-                            </div>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="24"
+                                            height="24"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            className="h-4 w-4"
+                                        >
+                                            <path d="M18 6 6 18" />
+                                            <path d="m6 6 12 12" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            ) : (
+                                <div className="border-dashed border-2 border-zinc-600 rounded-lg p-12 text-center aspect-square w-52 md:w-96 my-auto">
+                                    <div className="flex flex-col items-center space-y-1">
+                                        <svg
+                                            className="h-10 w-10 text-zinc-400 mb-4"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+                                            <polyline points="17 8 12 3 7 8"></polyline>
+                                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                                        </svg>
+                                        <h3 className="text-xl font-bold text-white">Arrastra y suelta tu imagen aquí</h3>
+                                        <p className="text-zinc-400 text-sm">O haz clic para seleccionar una imagen</p>
+                                        <label className="inline-flex items-center justify-center gap-2 mt-4 whitespace-nowrap cursor-pointer rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border bg-background h-10 px-4 py-2 border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-image mr-2 h-4 w-4">
+                                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect>
+                                                <circle cx="9" cy="9" r="2"></circle>
+                                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+                                            </svg>
+                                            Seleccionar Imágenes
+                                            <input
+                                                type="file"
+                                                className="hidden"
+                                                accept="image/*"
+                                                onChange={handleFileChange}
+                                            />
+                                        </label>
+                                    </div>
+                                </div>
+                            )}
 
                             {/* Inputs */}
                             <div className="space-y-4 w-full">
@@ -240,10 +360,15 @@ export default function EditProduct() {
                                         <label className="relative inline-flex items-center cursor-pointer">
                                             <input
                                                 type="checkbox"
-                                                name="available"
+                                                name="availability"
                                                 className="sr-only peer"
-                                                checked={formData.available}
-                                                onChange={handleChange}
+                                                checked={formData.availability === 1}
+                                                onChange={(e) => {
+                                                    setFormData(prev => ({
+                                                        ...prev,
+                                                        availability: e.target.checked ? 1 : 0
+                                                    }));
+                                                }}
                                             />
                                             <div className="w-11 h-6 bg-zinc-600 peer-checked:bg-green-500 rounded-full transition-colors duration-300" />
                                             <div className="absolute left-0.5 top-0.5 w-5 h-5 bg-white rounded-full transform peer-checked:translate-x-full transition-transform duration-300" />
@@ -268,38 +393,17 @@ export default function EditProduct() {
 
                                 <button
                                     type="submit"
-                                    className="bg-zinc-700 hover:bg-zinc-600 text-white text-sm font-medium rounded-md px-4 py-2 w-full"
+                                    disabled={loading}
+                                    className={`${loading ? 'bg-blue-800' : 'bg-blue-600 hover:bg-blue-900'
+                                        } text-white text-sm font-medium rounded-md px-4 py-2 w-full cursor-pointer transition-all duration-300 ease-in-out flex justify-center items-center`}
                                 >
-                                    Guardar Cambios
+                                    {loading ? 'Guardando...' : 'Guardar Cambios'}
                                 </button>
                             </div>
                         </form>
-                    ) : (
-                        <div className="border-dashed border-2 border-zinc-600 rounded-lg p-12 text-center">
-                            <div className="flex flex-col items-center">
-                                <svg
-                                    className="h-10 w-10 text-zinc-400 mb-4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
-                                    <polyline points="17 8 12 3 7 8"></polyline>
-                                    <line x1="12" y1="3" x2="12" y2="15"></line>
-                                </svg>
-                                <h3 className="text-lg font-medium text-white mb-2">Arrastra y suelta tu imagen aquí</h3>
-                                <p className="text-zinc-400 text-sm">O haz clic para seleccionar una imagen</p>
-                                <input type="file" onChange={handleFileChange} className="mt-4 text-sm text-white" />
-                            </div>
-                        </div>
                     )}
                 </div>
             </div>
         </Aside>
-
     );
 }

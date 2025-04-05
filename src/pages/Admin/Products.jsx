@@ -45,7 +45,7 @@ export default function AdminProducts() {
 
     return (
         <Aside>
-            <div className="flex flex-col mr-6 py-4">
+            <div className="flex flex-col py-4">
                 <h1 className="text-4xl font-black">Productos</h1>
                 <div className="flex items-center justify-between gap-2">
                     <div className="pt-0.5">
@@ -81,7 +81,7 @@ export default function AdminProducts() {
             </div>
 
             <section
-                className="flex-1 overflow-y-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 pr-4 pb-3 md:pb-2"
+                className="flex-1 overflow-y-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 pb-3 md:pb-2 scrollbar-product-hide"
                 style={{ maxHeight: "calc(100vh - 160px)" }}
             >
                 <AnimatePresence mode="sync">
