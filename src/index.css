@@ -15,6 +15,9 @@ html {
   scroll-behavior: smooth;
   scroll-margin-top: 100px;
 }
+.scrollbar-product-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
 
 #inicio {
   scroll-margin-top: 100px;
