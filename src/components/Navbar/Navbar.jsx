@@ -85,7 +85,7 @@ export default function Navbar() {
                                             className="absolute top-10 right-0 w-52 bg-white shadow-lg rounded-lg border border-gray-200"
                                         >
                                             <div className="px-4 py-2 text-sm text-gray-600 border-b">
-                                                {user.email}
+                                                {user.name}
                                             </div>
                                             <a href="/admin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                                 Administrador
@@ -151,7 +151,7 @@ export default function Navbar() {
                                         className="absolute bottom-14 right-0 w-52 bg-white shadow-lg rounded-lg border border-gray-200"
                                     >
                                         <div className="px-4 py-2 text-sm text-gray-600 border-b">
-                                            {user.email}
+                                            {user.name}
                                         </div>
                                         <a href="/admin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                             Administrador
